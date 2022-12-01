@@ -3,31 +3,18 @@
 [sudo] password for kali: 
 psql (15.0 (Debian 15.0-2), server 14.5 (Debian 14.5-3))
 Type "help" for help.
-
-postgres=# d\
-invalid command \
-Try \? for help.
-postgres-# 
-postgres-# ;
-ERROR:  syntax error at or near "d"
-LINE 1: d
-        ^
-postgres=# create tabele movie(mno int primary key,mname varchar(33),year int);
-ERROR:  syntax error at or near "tabele"
-LINE 1: create tabele movie(mno int primary key,mname varchar(33),ye...
-               ^
 postgres=# create table movie(mno int primary key,mname varchar(33),year int);
 CREATE TABLE
-postgres=# setecl *from movie
-postgres-# ;
-ERROR:  syntax error at or near "setecl"
-LINE 1: setecl *from movie
-        ^
+
+
+
 postgres=# select *from movie
 ;
  mno | mname | year 
 -----+-------+------
 (0 rows)
+
+
 
 postgres=# insert into movie values(1,'rrr',2019);
 INSERT 0 1
@@ -40,6 +27,8 @@ postgres=# insert into movie values(3,'kgf3',2022);
 INSERT 0 1
 postgres=# insert into movie values(4,'boy3',2021);
 INSERT 0 1
+
+
 postgres=# select * from movie;
  mno | mname | year 
 -----+-------+------
@@ -49,44 +38,6 @@ postgres=# select * from movie;
    4 | boy3  | 2021
 (4 rows)
 
-postgres=# 
-postgres=# create table actor(ano int primary key,aname varchr(330
-
-postgres=# create table actor(ano int primary key,aname varchr(330;
-postgres(# 0;
-postgres(# 0
-postgres(# );
-postgres(# );
-ERROR:  syntax error at or near ";"
-LINE 1: create table actor(ano int primary key,aname varchr(330;
-                                                               ^
-postgres=# create table actor(ano int primary key,aname varchr(33Images
-Shopping
-Books
-More
-Tools
-
-About 18,03,00,00,000 results (0.33 seconds) 
-
-WhatsApp WImages
-Shopping
-Books
-More
-Tools
-
-About 18,03,00,00,000 results (0.33 seconds) 
-
-WhatsApp W;
-postgres(# create table actor(ano int primary key,aname varchr(330;
-0;
-0
-);
-);
-postgres(# )
-postgres(# ;
-postgres(# );
-ERROR:  syntax error at or near "Images"
-LINE 1: create table actor(ano int primary key,aname varchr(33Images
                                                               ^
 postgres=# create table actor(ano int primary key, aname varchar(34));
 
@@ -96,6 +47,7 @@ postgres=# SELECT * FROM ACTOR;
  ano | aname 
 -----+-------
 (0 rows)
+
 
 postgres=# insert into actor values(1,'ak');
 INSERT 0 1
@@ -124,9 +76,6 @@ postgres=# select * from movie;
    4 | boy3  | 2021
 (4 rows)
 
-postgres=# create table movie_actor(mno int references movie on delete casede,ano int references actor on delete cascade);
-ERROR:  syntax error at or near "casede"
-LINE 1: ...le movie_actor(mno int references movie on delete casede,ano...
                                                              ^
 postgres=# create table movie_actor(mno int references movie on delete cascade,ano int references actor on delete cascade);
 CREATE TABLE
@@ -135,9 +84,8 @@ postgres=# select * from movie_actor;
 -----+-----
 (0 rows)
 
-postgres=# insert into movie_actor values(1,5);
-ERROR:  insert or update on table "movie_actor" violates foreign key constraint "movie_actor_ano_fkey"
-DETAIL:  Key (ano)=(5) is not present in table "actor".
+
+
 postgres=# insert into movie_actor values(1,4);
 INSERT 0 1
 postgres=# insert into movie_actor values(2,3);
@@ -182,5 +130,3 @@ postgres=# select * from movie;
    4 | boy3  | 2021
 (4 rows)
 
-postgres=# ^C
-postgres=# 
