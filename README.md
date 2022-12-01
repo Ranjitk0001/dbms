@@ -38,7 +38,7 @@ postgres=# select * from movie;
    4 | boy3  | 2021
 (4 rows)
 
-                                                              ^
+                                                              
 postgres=# create table actor(ano int primary key, aname varchar(34));
 
 CREATE TABLE
